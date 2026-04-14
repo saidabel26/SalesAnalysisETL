@@ -4,6 +4,7 @@ using SalesAnalysisETL.Application.Interfaces.Repositories;
 using SalesAnalysisETL.Persistence.Repositories.API;
 using SalesAnalysisETL.Persistence.Repositories.CSV;
 using SalesAnalysisETL.Persistence.Repositories.DB;
+using SalesAnalysisETL.Persistence.Repositories.DW;
 
 namespace SalesAnalysisETL.Persistence;
 
@@ -16,6 +17,7 @@ public static class DependencyInjection
 
         services.AddScoped<ICsvExtractionRepository, CsvExtractionRepository>();
         services.AddScoped<IHistoricalSalesRepository, HistoricalSalesRepository>();
+        services.AddScoped<IDataWarehouseRepository, DataWarehouseRepository>();
 
         services.AddHttpClient<IApiExtractionRepository, ApiExtractionRepository>((serviceProvider, client) =>
         {
